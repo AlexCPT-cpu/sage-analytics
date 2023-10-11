@@ -1,6 +1,6 @@
 specVersion: 0.0.5
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: univ2factory
@@ -17,11 +17,11 @@ dataSources:
         - PairCreated
       abis:
         - name: univ2factory
-          file: ./abis/univ2factory.json
+          file: univ2factory/abis/univ2factory.json
       eventHandlers:
         - event: PairCreated(indexed address,indexed address,address,uint256)
           handler: handlePairCreated
-      file: ./src/univ-2-factory.ts
+      file: univ2factory/univ2factory.wasm
   - kind: ethereum
     name: univ3factory
     network: mainnet
@@ -39,7 +39,7 @@ dataSources:
         - PoolCreated
       abis:
         - name: univ3factory
-          file: ./abis/univ3factory.json
+          file: univ3factory/abis/univ3factory.json
       eventHandlers:
         - event: FeeAmountEnabled(indexed uint24,indexed int24)
           handler: handleFeeAmountEnabled
@@ -47,4 +47,4 @@ dataSources:
           handler: handleOwnerChanged
         - event: PoolCreated(indexed address,indexed address,indexed uint24,int24,address)
           handler: handlePoolCreated
-      file: ./src/univ-3-factory.ts
+      file: univ3factory/univ3factory.wasm
